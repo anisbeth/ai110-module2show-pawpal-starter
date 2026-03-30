@@ -1,43 +1,94 @@
 # PawPal+ (Module 2 Project)
 
-You are building **PawPal+**, a Streamlit app that helps a pet owner plan care tasks for their pet.
+## Description
+PawPal+ is a pet care management system designed to help pet owners organize and track daily care tasks such as feeding, walking, and medication. The system uses object-oriented programming and scheduling logic to manage tasks efficiently across multiple pets.
 
-## Scenario
+This project follows a CLI-first development approach, where the backend logic is tested in a Python script before being integrated into a Streamlit web application.
 
-A busy pet owner needs help staying consistent with pet care. They want an assistant that can:
+---
 
-- Track pet care tasks (walks, feeding, meds, enrichment, grooming, etc.)
-- Consider constraints (time available, priority, owner preferences)
-- Produce a daily plan and explain why it chose that plan
+## Features
 
-Your job is to design the system first (UML), then implement the logic in Python, then connect it to the Streamlit UI.
+- Create and manage multiple pets
+- Add and track pet care tasks
+- Sort tasks by time
+- Detect scheduling conflicts
+- Mark tasks as complete
+- Filter tasks by completion status or pet
+- Basic recurring task support (daily/weekly)
+- CLI demo for testing logic
+- Streamlit UI for user interaction
+- Automated tests using pytest
 
-## What you will build
+---
 
-Your final app should:
+## Project Structure
+pawpal_project/
+│
+├── app.py # Streamlit UI
+├── main.py # CLI demo script
+├── pawpal_system.py # Core backend logic
+├── README.md # Project documentation
+├── reflection.md # Project reflection
+├── requirements.txt # Dependencies
+└── tests/
+└── test_pawpal.py # Pytest test suite
 
-- Let a user enter basic owner + pet info
-- Let a user add/edit tasks (duration + priority at minimum)
-- Generate a daily schedule/plan based on constraints and priorities
-- Display the plan clearly (and ideally explain the reasoning)
-- Include tests for the most important scheduling behaviors
 
-## Getting started
+---
 
-### Setup
+## How to Run
 
-```bash
-python -m venv .venv
-source .venv/bin/activate  # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-```
+### 1. Run the CLI Demo
 
-### Suggested workflow
+This tests the backend logic directly in the terminal: python main.py
 
-1. Read the scenario carefully and identify requirements and edge cases.
-2. Draft a UML diagram (classes, attributes, methods, relationships).
-3. Convert UML into Python class stubs (no logic yet).
-4. Implement scheduling logic in small increments.
-5. Add tests to verify key behaviors.
-6. Connect your logic to the Streamlit UI in `app.py`.
-7. Refine UML so it matches what you actually built.
+---
+
+### 2. Run the Streamlit App
+
+Launch the web interface: streamlit run app.py
+
+---
+
+### 3. Run Tests
+
+Run automated tests to verify functionality: python -m pytest
+
+---
+
+## Testing
+
+This project includes a pytest test suite that verifies:
+
+- Task completion functionality
+- Adding tasks to pets
+- Sorting tasks by time
+- Conflict detection logic
+
+All tests pass successfully, confirming that the core system behaves as expected.
+
+---
+
+## Smarter Scheduling
+
+The Scheduler class includes basic algorithmic logic:
+
+- Tasks are sorted using Python’s `sorted()` function
+- Filtering allows users to view tasks by status or pet
+- Conflict detection identifies tasks scheduled at the same time
+- Recurring tasks generate new tasks when completed (daily/weekly)
+
+---
+
+## Confidence Level
+
+⭐⭐⭐⭐☆
+
+The system successfully implements core scheduling features including sorting, filtering, and conflict detection. While it does not handle complex overlapping time ranges, it performs reliably for the intended use case.
+
+---
+
+## Author
+
+Arthur Nisbeth
